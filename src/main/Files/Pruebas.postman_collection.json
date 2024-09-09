@@ -1,0 +1,383 @@
+{
+	"info": {
+		"_postman_id": "506e7f2f-7a05-4f04-a051-e4c07928c85e",
+		"name": "Pruebas",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7849402"
+	},
+	"item": [
+		{
+			"name": "Cliente",
+			"item": [
+				{
+					"name": "Crear Cliente",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"personVo\": {\r\n    \"completeName\": \"Bryan Carrillo\",\r\n    \"gender\": \"Masculino\",\r\n    \"age\": 21,\r\n    \"identifyNumber\": \"1003014915\",\r\n    \"address\": \"Quito\",\r\n    \"phone\": \"+321321\"\r\n  },\r\n  \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/clientes/crearCliente",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"clientes",
+								"crearCliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ActualizarCliente",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"personVo\": {\r\n    \"completeName\": \"John\",\r\n    \"gender\": \"Femenino\",\r\n    \"age\": \"31\",\r\n    \"identifyNumber\": \"1003014915\",\r\n    \"address\": \"Ibarra\",\r\n    \"phone\": \"+1234567890\"\r\n  },\r\n  \"clientID\": \"3836a422-b472-475b-a993-7ef3908fcd19\",\r\n  \"password\": \"nuevopass\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/clientes/updateCliente",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"clientes",
+								"updateCliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cambiar estado del cliente",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/clientes/updateStatusClient/?identifyNumber=1003014915&status=false\n",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"clientes",
+								"updateStatusClient",
+								""
+							],
+							"query": [
+								{
+									"key": "identifyNumber",
+									"value": "1003014915"
+								},
+								{
+									"key": "status",
+									"value": "false\n"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar clientes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/clientes/findAllClientes",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"clientes",
+								"findAllClientes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Borrar Cliente",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "clientId",
+								"value": "71dff185-5193-4f16-b70d-11767f6c56a3",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/clientes/deleteClient/1111",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"clientes",
+								"deleteClient",
+								"1111"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cuenta",
+			"item": [
+				{
+					"name": "Crear cuenta",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"identifyNumber\": \"1003014915\",\r\n    \"balance\" :0,\r\n    \"typeAccount\": \"Corriente\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/cuentas/crearCuenta",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cuentas",
+								"crearCuenta"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar Cuenta",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accountNumber\": \"316223\",\r\n    \"balance\" :105.02,\r\n    \"typeAccount\": \"Ahorros\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/cuentas/updateAccount",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cuentas",
+								"updateAccount"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar estado de la cuenta",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/cuentas/updateAccountStatus/?accountNumber=935840&status=false",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cuentas",
+								"updateAccountStatus",
+								""
+							],
+							"query": [
+								{
+									"key": "accountNumber",
+									"value": "935840"
+								},
+								{
+									"key": "status",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar Cuentas por cliente",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/cuentas/findAccountsByClient/?identifyNumber=1003014915",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"cuentas",
+								"findAccountsByClient",
+								""
+							],
+							"query": [
+								{
+									"key": "identifyNumber",
+									"value": "1003014915"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Movimientos",
+			"item": [
+				{
+					"name": "Crear un movimiento",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accountNumber\":\"990626\",\r\n    \"movementValue\" :100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/movimientos/crearMovimiento",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"movimientos",
+								"crearMovimiento"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualizar un movimiento",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"movementId\":\"b258c126-e747-4655-9d5b-6434d8b7385e\",\r\n    \"movementValue\": -100,\r\n    \"dateMovement\": \"2024-09-03\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/movimientos/updateMovement",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"movimientos",
+								"updateMovement"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Estados de cuenta",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/movimientos/findAccountsByDate/?identifyNumber=1003014915&datefrom=2024/09/02&dateTo=2024/09/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"movimientos",
+								"findAccountsByDate",
+								""
+							],
+							"query": [
+								{
+									"key": "identifyNumber",
+									"value": "1003014915"
+								},
+								{
+									"key": "datefrom",
+									"value": "2024/09/02"
+								},
+								{
+									"key": "dateTo",
+									"value": "2024/09/10"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
